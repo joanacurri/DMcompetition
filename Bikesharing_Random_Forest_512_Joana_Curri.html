@@ -167,6 +167,17 @@ randomForest
 </blockquote>
 <p><a name="2"></a></p>
 <hr />
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<p>My strategy was</p>
+<ol style="list-style-type: decimal">
+<li>Transform the “date” variable to get: hours, days, months, years.</li>
+<li>Combination of some qualitative predictors and dichotomous variables with some quantitative predictors.</li>
+<li>Creation through a regression of a variable “y_1” that expresses the amount of bikes rented the day before.</li>
+<li>Elimination of outliers through the analysis of the cook’s distance.</li>
+<li>Predict “count” with: Random Forest to predict the “registered” variable Random Forest to predict the “casual” variable</li>
+</ol>
+</div>
 <div id="references" class="section level3">
 <h3>References:</h3>
 <ul>
