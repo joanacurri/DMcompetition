@@ -164,6 +164,17 @@ e1071
 <p><a name="2"></a></p>
 <hr />
 </div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<p>My strategy was</p>
+<ol style="list-style-type: decimal">
+<li>order the levels of some qualitative variables</li>
+<li>delete this variables “asian” “black” “hispanic_latin” “indian” “middle_eastern” “native_american” “pacific_islander” “white” because of were not valued</li>
+<li>analyze the missing value and predict the qualitative variables with classification tree</li>
+<li>features selection with “Boruta” which select the most important variables given the target response</li>
+<li>mean of bayesian classification and random forest classification</li>
+</ol>
+</div>
 <div id="models" class="section level3">
 <h3>Models</h3>
 <ul>
@@ -520,22 +531,20 @@ filefs&lt;-Train
 convert &lt;- c(1:dim(filefs)[2])
 filefs[,convert] &lt;- data.frame(apply(filefs[convert], 2, as.factor))
 boruta.train &lt;- Boruta(filefs$Class~., data =filefs, doTrace = 2)</code></pre>
-<pre><code>Computing permutation importance.. Progress: 64%. Estimated remaining time: 17 seconds.
-Computing permutation importance.. Progress: 53%. Estimated remaining time: 27 seconds.
-Computing permutation importance.. Progress: 70%. Estimated remaining time: 13 seconds.
-Computing permutation importance.. Progress: 53%. Estimated remaining time: 27 seconds.
-Computing permutation importance.. Progress: 53%. Estimated remaining time: 27 seconds.
+<pre><code>Computing permutation importance.. Progress: 61%. Estimated remaining time: 19 seconds.
+Computing permutation importance.. Progress: 54%. Estimated remaining time: 26 seconds.
+Computing permutation importance.. Progress: 58%. Estimated remaining time: 22 seconds.
+Computing permutation importance.. Progress: 56%. Estimated remaining time: 23 seconds.
+Computing permutation importance.. Progress: 60%. Estimated remaining time: 20 seconds.
+Computing permutation importance.. Progress: 67%. Estimated remaining time: 15 seconds.
 Computing permutation importance.. Progress: 66%. Estimated remaining time: 15 seconds.
-Computing permutation importance.. Progress: 79%. Estimated remaining time: 8 seconds.
-Computing permutation importance.. Progress: 83%. Estimated remaining time: 6 seconds.
-Computing permutation importance.. Progress: 79%. Estimated remaining time: 8 seconds.
-Computing permutation importance.. Progress: 88%. Estimated remaining time: 4 seconds.
-Computing permutation importance.. Progress: 88%. Estimated remaining time: 4 seconds.
-Computing permutation importance.. Progress: 87%. Estimated remaining time: 4 seconds.
-Computing permutation importance.. Progress: 85%. Estimated remaining time: 5 seconds.
-Computing permutation importance.. Progress: 89%. Estimated remaining time: 3 seconds.
-Computing permutation importance.. Progress: 51%. Estimated remaining time: 22 minutes, 0 seconds.
-Computing permutation importance.. Progress: 85%. Estimated remaining time: 54 minutes, 37 seconds.</code></pre>
+Computing permutation importance.. Progress: 66%. Estimated remaining time: 15 seconds.
+Computing permutation importance.. Progress: 66%. Estimated remaining time: 16 seconds.
+Computing permutation importance.. Progress: 65%. Estimated remaining time: 16 seconds.
+Computing permutation importance.. Progress: 67%. Estimated remaining time: 14 seconds.
+Computing permutation importance.. Progress: 66%. Estimated remaining time: 16 seconds.
+Computing permutation importance.. Progress: 67%. Estimated remaining time: 14 seconds.
+Computing permutation importance.. Progress: 66%. Estimated remaining time: 15 seconds.</code></pre>
 <pre class="r"><code>boruta.train$finalDecision</code></pre>
 <pre><code>             age        body_type             diet           drinks            drugs        education           height           income      last_online        offspring      orientation             pets 
        Confirmed        Tentative         Rejected         Rejected        Tentative        Confirmed        Confirmed        Confirmed         Rejected         Rejected         Rejected         Rejected 
